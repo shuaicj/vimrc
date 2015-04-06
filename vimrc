@@ -154,9 +154,13 @@ let Tlist_WinWidth = 25                                 " 窗口宽度
 
 " --------------------   ctags 设置    -------------------- {
 set tags+=~/.vim/ctags/cocos2d-x-2.2-lua.tags
+set tags+=~/.vim/ctags/cocos2d-x-3.5.tags
 set tags+=~/.vim/ctags/quick-2.2.1.tags
 set tags+=~/.vim/ctags/HookHeros.tags 
-nmap <F12> :!ctags --languages=Lua 
-    \ -f ~/.vim/ctags/HookHeros.tags 
-    \ -R ~/Documents/HookHeroes/quick-cocos2d-x-2.2.1-rc/bin/hookheros/scripts<CR>
+nmap <F12> :!ctags --languages=C++ 
+    \ -f ~/.vim/ctags/cocos2d-x-3.5.tags 
+    \ -R ~/Documents/cocos2d-x-3.5<CR>
+"nmap <F12> :!ctags --languages=Lua 
+"    \ -f ~/.vim/ctags/HookHeros.tags 
+"    \ -R ~/Documents/HookHeroes/quick-cocos2d-x-2.2.1-rc/bin/hookheros/scripts<CR>
 " --------------------   ctags 设置    -------------------- }
