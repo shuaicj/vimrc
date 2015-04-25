@@ -60,6 +60,7 @@ set whichwrap=b,s,<,>,[,]           " 光标从行首和行末时可以跳到另
 set autoindent                      " 自动缩进
 set smartindent                     " 智能缩进
 set cindent                         " C语言式缩进
+set cinoptions=g0                   " public, private关键字顶格
 set number                          " 显示行号
 set mouse=a                         " 启用鼠标
 set ruler                           " 显示光标位置
