@@ -32,6 +32,8 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'Yggdroot/indentLine'
 " tags浏览
 Plugin 'taglist.vim'
+" 快速切换.cpp和.h
+Plugin 'a.vim'
 " -------------------- Vundle 所有插件 -------------------- }
 
 
@@ -148,6 +150,9 @@ let g:Powerline_symbols = 'unicode'                     " 用Unicode字符模拟
 nmap <F10> :TlistToggle<CR>
 let Tlist_Use_Right_Window = 1                          " 窗口位置 
 let Tlist_WinWidth = 25                                 " 窗口宽度
+
+" a.vim
+nmap <F11> :A<CR>
 
 
 " --------------------  插件具体设置   -------------------- }
