@@ -84,7 +84,7 @@ set noerrorbells                    " 关闭响铃
 set novisualbell
 set showmatch                       " 高亮匹配的括号
 set confirm                         " 不能保存时弹出确认框
-set colorcolumn=100                 " 高亮指定列
+"set colorcolumn=100                 " 高亮指定列
 
 " 语法高亮
 syntax enable                      
