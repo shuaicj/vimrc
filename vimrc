@@ -110,11 +110,19 @@ vmap <C-C> "+y
 " 从系统剪贴板粘贴 Ctrl+V  
 nmap <silent> <C-V> "+p  
   
-" 窗口切换 Ctrl+... 
-nmap <C-H> <C-W>h  
-nmap <C-L> <C-W>l  
-nmap <C-J> <C-W>j  
-nmap <C-K> <C-W>k 
+" 窗口操作
+"nmap <C-H> <C-W>h  
+"nmap <C-L> <C-W>l  
+"nmap <C-J> <C-W>j  
+"nmap <C-K> <C-W>k 
+nmap wh <C-W>h  
+nmap wl <C-W>l  
+nmap wj <C-W>j  
+nmap wk <C-W>k 
+nmap w= :resize +3<CR>
+nmap w- :resize -3<CR>
+nmap w, :vertical resize -3<CR>
+nmap w. :vertical resize +3<CR>
 " --------------------  Vim 基本设置   -------------------- }
 
 
