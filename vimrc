@@ -64,7 +64,7 @@ set smartindent                     " 智能缩进
 set cindent                         " C语言式缩进
 set cinoptions=g0,i0                " public, private关键字顶格；构造函数初始化列表顶格
 set number                          " 显示行号
-set mouse=a                         " 启用鼠标
+"set mouse=a                         " 启用鼠标
 set ruler                           " 显示光标位置
 set incsearch                       " 实时搜索
 set hlsearch                        " 高亮搜索结果
