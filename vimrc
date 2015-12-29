@@ -86,9 +86,8 @@ set showmatch                       " 高亮匹配的括号
 set confirm                         " 不能保存时弹出确认框
 "set colorcolumn=100                 " 高亮指定列
 set foldmethod=indent               " 按缩进折叠代码
-set foldnestmax=20                  " 最深折叠几层
 set nofoldenable                    " 打开文件时默认不折叠
-set foldlevel=1                     " 一次折叠一层
+set foldlevel=10                    " 保证第一次折叠时不会折叠全部
 
 " 语法高亮
 syntax enable                      
