@@ -76,7 +76,6 @@ set laststatus=2                    " 始终显示状态栏
 set autoread                        " 当文件在外部被修改时自动更新该文件
 set nobackup                        " 不生成备份文件
 set noswapfile                      " 不生成swap文件
-set showmatch                       " 显示括号配对情况
 set nowrap                          " 设置不自动换行
 set history=50                      " vim最多记住50条历史命令
 set showcmd                         " 命令提示
@@ -140,7 +139,7 @@ let g:acp_completeOption = '.,w,b,u,t,i,k'              " complete的参数
 " nerdtree 
 nmap <F9> :NERDTreeToggle<CR>
 let NERDTreeWinPos = 'left'                             " 窗口位置，or 'right'
-let NERDTreeWinSize = 25                                " 窗口宽度
+let NERDTreeWinSize = 35                                " 窗口宽度
 let NERDTreeDirArrows = 1                               " 目录前面显示箭头
 let NERDTreeHighlightCursorline = 0                     " 不高亮光标行
 
