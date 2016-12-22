@@ -31,9 +31,11 @@ Plugin 'Lokaltog/vim-powerline'
 " 缩进对齐线
 Plugin 'Yggdroot/indentLine'
 " tags浏览
-Plugin 'taglist.vim'
+"Plugin 'taglist.vim'
 " 快速切换.cpp和.h
 Plugin 'a.vim'
+" 粘贴时自动 set paste
+Plugin 'ConradIrwin/vim-bracketed-paste'
 " -------------------- Vundle 所有插件 -------------------- }
 
 
@@ -107,10 +109,10 @@ autocmd BufReadPost *
 nmap <silent> <C-A> ggvG$  
   
 " 选中状态下 Ctrl+C 复制到系统剪贴板  
-vmap <C-C> "+y  
+"vmap <C-C> "+y  
   
 " 从系统剪贴板粘贴 Ctrl+V  
-nmap <silent> <C-V> "+p  
+"nmap <silent> <C-V> "+p  
   
 " 窗口操作
 "nmap <C-H> <C-W>h  
