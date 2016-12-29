@@ -1,4 +1,4 @@
-# My vim config.
+# Vim config
 
 1. Get `vundle`
 `$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
