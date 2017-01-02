@@ -147,7 +147,7 @@ let NERDTreeHighlightCursorline = 0                     " 不高亮光标行
 
 " nerdcommenter
 map <F8> <leader>c<space>
-let g:NERDDefaultAlign = 'start'                         " 注释符号在最左边
+let g:NERDDefaultAlign = 'left'                         " 注释符号在最左边
 
 " ctrlp
 let g:ctrlp_by_filename = 0                             " 只用文件名匹配
