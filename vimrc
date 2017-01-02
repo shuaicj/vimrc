@@ -146,8 +146,8 @@ let NERDTreeDirArrows = 1                               " 目录前面显示箭�
 let NERDTreeHighlightCursorline = 0                     " 不高亮光标行
 
 " nerdcommenter
-map <F7> <leader>cl
-map <F8> <leader>cu
+map <F8> <leader>c<space>
+let g:NERDDefaultAlign = 'start'                         " 注释符号在最左边
 
 " ctrlp
 let g:ctrlp_by_filename = 0                             " 只用文件名匹配
