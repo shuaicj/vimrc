@@ -25,7 +25,7 @@ Plugin 'scrooloose/nerdtree'
 " 快速注释
 Plugin 'scrooloose/nerdcommenter'
 " 文件快速定位
-Plugin 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
 " 彩色状态栏
 Plugin 'Lokaltog/vim-powerline'
 " 缩进对齐线
@@ -65,7 +65,7 @@ set autoindent                      " 自动缩进
 set smartindent                     " 智能缩进
 set cindent                         " C语言式缩进
 set cinoptions=g0,i0                " public, private关键字顶格；构造函数初始化列表顶格
-set number                          " 显示行号
+"set number                          " 显示行号
 "set mouse=a                         " 启用鼠标
 set ruler                           " 显示光标位置
 set incsearch                       " 实时搜索
@@ -78,7 +78,7 @@ set laststatus=2                    " 始终显示状态栏
 set autoread                        " 当文件在外部被修改时自动更新该文件
 set nobackup                        " 不生成备份文件
 set noswapfile                      " 不生成swap文件
-set nowrap                          " 设置不自动换行
+"set nowrap                          " 设置不自动换行
 set history=50                      " vim最多记住50条历史命令
 set showcmd                         " 命令提示
 set noerrorbells                    " 关闭响铃
@@ -172,14 +172,8 @@ nmap <F11> :A<CR>
 
 
 " --------------------   ctags 设置    -------------------- {
-set tags+=~/.vim/ctags/cocos2d-x-2.2-lua.tags
-set tags+=~/.vim/ctags/cocos2d-x-3.5.tags
-set tags+=~/.vim/ctags/quick-2.2.1.tags
-set tags+=~/.vim/ctags/HookHeros.tags 
+"set tags+=~/.vim/ctags/cocos2d-x-3.5.tags
 "nmap <F12> :!ctags --languages=C++ 
 "    \ -f ~/.vim/ctags/cocos2d-x-3.5.tags 
 "    \ -R ~/Documents/cocos2d-x-3.5<CR>
-"nmap <F12> :!ctags --languages=Lua 
-"    \ -f ~/.vim/ctags/HookHeros.tags 
-"    \ -R ~/Documents/HookHeroes/quick-cocos2d-x-2.2.1-rc/bin/hookheros/scripts<CR>
 " --------------------   ctags 设置    -------------------- }
