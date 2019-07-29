@@ -110,7 +110,8 @@ nmap <silent> <C-A> ggvG$
   
 " 选中状态下 Ctrl+C 复制到系统剪贴板  
 "vmap <C-C> "+y  
-  
+vnoremap <C-c> :w !pbcopy<CR>
+
 " 从系统剪贴板粘贴 Ctrl+V  
 "nmap <silent> <C-V> "+p  
   
