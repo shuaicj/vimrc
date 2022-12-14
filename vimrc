@@ -27,7 +27,7 @@ Plugin 'scrooloose/nerdcommenter'
 " 文件快速定位
 "Plugin 'kien/ctrlp.vim'
 " 彩色状态栏
-Plugin 'Lokaltog/vim-powerline'
+"Plugin 'Lokaltog/vim-powerline'
 " 缩进对齐线
 Plugin 'Yggdroot/indentLine'
 " tags浏览
@@ -36,6 +36,10 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'a.vim'
 " 粘贴时自动 set paste
 Plugin 'ConradIrwin/vim-bracketed-paste'
+" onedark主题
+Plugin 'joshdick/onedark.vim'
+" 状态栏
+Plugin 'itchyny/lightline.vim'
 " -------------------- Vundle 所有插件 -------------------- }
 
 
@@ -65,8 +69,8 @@ set autoindent                      " 自动缩进
 set smartindent                     " 智能缩进
 set cindent                         " C语言式缩进
 set cinoptions=g0,i0                " public, private关键字顶格；构造函数初始化列表顶格
-"set number                          " 显示行号
-"set mouse=a                         " 启用鼠标
+set number                          " 显示行号
+set mouse=a                         " 启用鼠标
 set ruler                           " 显示光标位置
 set incsearch                       " 实时搜索
 set hlsearch                        " 高亮搜索结果
@@ -109,8 +113,8 @@ autocmd BufReadPost *
 nmap <silent> <C-A> ggvG$  
   
 " 选中状态下 Ctrl+C 复制到系统剪贴板  
-"vmap <C-C> "+y  
-vnoremap <C-c> :w !pbcopy<CR>
+vnoremap <C-c> "+y
+"vnoremap <C-c> :w !pbcopy<CR>
 
 " 从系统剪贴板粘贴 Ctrl+V  
 "nmap <silent> <C-V> "+p  
@@ -145,6 +149,13 @@ let NERDTreeWinPos = 'left'                             " 窗口位置，or 'rig
 let NERDTreeWinSize = 35                                " 窗口宽度
 let NERDTreeDirArrows = 1                               " 目录前面显示箭头
 let NERDTreeHighlightCursorline = 0                     " 不高亮光标行
+" Start NERDTree if a file is specified, and move the cursor to its window.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() > 0 || exists("s:std_in") | NERDTree | wincmd p | endif
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " nerdcommenter
 map <F8> <leader>c<space>
@@ -158,7 +169,7 @@ let g:ctrlp_open_new_file = 'h'                         " 创建新文件时用�
 let g:ctrlp_open_multiple_files = 'h'                   " 打开多个文件用水平split
 
 " powerline 
-let g:Powerline_symbols = 'unicode'                     " 用Unicode字符模拟图标和箭头
+"let g:Powerline_symbols = 'unicode'                     " 用Unicode字符模拟图标和箭头
 
 " taglist
 nmap <F10> :TlistToggle<CR>
@@ -168,6 +179,13 @@ let Tlist_WinWidth = 25                                 " 窗口宽度
 " a.vim
 nmap <F11> :A<CR>
 
+" colorscheme 启用顔色主题
+colorscheme onedark
+
+" lightline
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
 
 " --------------------  插件具体设置   -------------------- }
 
