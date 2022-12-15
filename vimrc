@@ -147,11 +147,12 @@ let g:acp_completeOption = '.,w,b,u,t,i,k'              " complete的参数
 nmap <F9> :NERDTreeToggle<CR>
 let NERDTreeWinPos = 'left'                             " 窗口位置，or 'right'
 let NERDTreeWinSize = 35                                " 窗口宽度
+let NERDTreeShowHidden = 1                                " 显示隐藏文件
 let NERDTreeDirArrows = 1                               " 目录前面显示箭头
 let NERDTreeHighlightCursorline = 0                     " 不高亮光标行
-" Start NERDTree if a file is specified, and move the cursor to its window.
+" Start NERDTree. If a file is specified, move the cursor to its window.
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() > 0 || exists("s:std_in") | NERDTree | wincmd p | endif
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
 " Close the tab if NERDTree is the only window remaining in it.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 " Exit Vim if NERDTree is the only window remaining in the only tab.
