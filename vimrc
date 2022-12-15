@@ -22,6 +22,8 @@ Plugin 'ervandew/supertab'
 Plugin 'AutoComplPop'
 " 文件浏览
 Plugin 'scrooloose/nerdtree'
+" nerdtree 增强标签页操作
+Plugin 'jistr/vim-nerdtree-tabs'
 " 快速注释
 Plugin 'scrooloose/nerdcommenter'
 " 文件快速定位
@@ -113,8 +115,8 @@ autocmd BufReadPost *
 nmap <silent> <C-A> ggvG$  
   
 " 选中状态下 Ctrl+C 复制到系统剪贴板  
-vnoremap <C-c> "+y
-"vnoremap <C-c> :w !pbcopy<CR>
+vnoremap <C-C> "+y
+"vnoremap <C-C> :w !pbcopy<CR>
 
 " 从系统剪贴板粘贴 Ctrl+V  
 "nmap <silent> <C-V> "+p  
@@ -132,6 +134,18 @@ nmap w= :resize +3<CR>
 nmap w- :resize -3<CR>
 nmap w, :vertical resize -3<CR>
 nmap w. :vertical resize +3<CR>
+
+" 标签页跳转
+nmap 1t 1gt
+nmap 2t 2gt
+nmap 3t 3gt
+nmap 4t 4gt
+nmap 5t 5gt
+nmap 6t 6gt
+nmap 7t 7gt
+nmap 8t 8gt
+nmap 9t 9gt
+nmap 0t :tablast<CR>
 " --------------------  Vim 基本设置   -------------------- }
 
 
@@ -153,15 +167,18 @@ let NERDTreeHighlightCursorline = 0                     " 不高亮光标行
 " Start NERDTree. If a file is specified, move the cursor to its window.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 " Close the tab if NERDTree is the only window remaining in it.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " nerdcommenter
-map <F8> <leader>c<space>
+map <C-_> <leader>c<space>
 let g:NERDDefaultAlign = 'left'                         " 注释符号在最左边
 let g:NERDSpaceDelims = 1                               " 注释符号后跟一个空格符
+let g:NERDAltDelims_python = 1                          " 指定python注释符后仅一空格
 
 " ctrlp
 let g:ctrlp_by_filename = 0                             " 只用文件名匹配
@@ -185,7 +202,7 @@ colorscheme onedark
 
 " lightline
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'jellybeans',
       \ }
 
 " --------------------  插件具体设置   -------------------- }
