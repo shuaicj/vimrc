@@ -27,9 +27,7 @@ Plugin 'jistr/vim-nerdtree-tabs'
 " 快速注释
 Plugin 'scrooloose/nerdcommenter'
 " 文件快速定位
-"Plugin 'kien/ctrlp.vim'
-" 彩色状态栏
-"Plugin 'Lokaltog/vim-powerline'
+Plugin 'ctrlpvim/ctrlp.vim'
 " 缩进对齐线
 Plugin 'Yggdroot/indentLine'
 " tags浏览
@@ -40,7 +38,7 @@ Plugin 'a.vim'
 Plugin 'ConradIrwin/vim-bracketed-paste'
 " onedark主题
 Plugin 'joshdick/onedark.vim'
-" 状态栏
+" 状态栏 影响tab line和status line
 Plugin 'itchyny/lightline.vim'
 " -------------------- Vundle 所有插件 -------------------- }
 
@@ -112,40 +110,42 @@ autocmd BufReadPost *
     \ endif
 
 " 全选 Ctrl+A
-nmap <silent> <C-A> ggvG$  
+nnoremap <silent> <C-A> ggvG$
   
 " 选中状态下 Ctrl+C 复制到系统剪贴板  
 vnoremap <C-C> "+y
 "vnoremap <C-C> :w !pbcopy<CR>
 
 " 从系统剪贴板粘贴 Ctrl+V  
-"nmap <silent> <C-V> "+p  
+"nnoremap <silent> <C-V> "+p
   
 " 窗口操作
-"nmap <C-H> <C-W>h  
-"nmap <C-L> <C-W>l  
-"nmap <C-J> <C-W>j  
-"nmap <C-K> <C-W>k 
-nmap wh <C-W>h  
-nmap wl <C-W>l  
-nmap wj <C-W>j  
-nmap wk <C-W>k 
-nmap w= :resize +3<CR>
-nmap w- :resize -3<CR>
-nmap w, :vertical resize -3<CR>
-nmap w. :vertical resize +3<CR>
+nnoremap wh <C-W>h
+nnoremap wl <C-W>l
+nnoremap wj <C-W>j
+nnoremap wk <C-W>k
+nnoremap w= :resize +3<CR>
+nnoremap w- :resize -3<CR>
+nnoremap w, :vertical resize -3<CR>
+nnoremap w. :vertical resize +3<CR>
 
 " 标签页跳转
-nmap 1t 1gt
-nmap 2t 2gt
-nmap 3t 3gt
-nmap 4t 4gt
-nmap 5t 5gt
-nmap 6t 6gt
-nmap 7t 7gt
-nmap 8t 8gt
-nmap 9t 9gt
-nmap 0t :tablast<CR>
+nnoremap 1t 1gt
+nnoremap 2t 2gt
+nnoremap 3t 3gt
+nnoremap 4t 4gt
+nnoremap 5t 5gt
+nnoremap 6t 6gt
+nnoremap 7t 7gt
+nnoremap 8t 8gt
+nnoremap 9t 9gt
+nnoremap 0t :tablast<CR>
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+" Go to last active tab
+au TabLeave * let g:last_active_tab = tabpagenr()
+nnoremap <silent> <C-Up> :exe "tabn ".g:last_active_tab<CR>
+nnoremap <silent> <C-Down> :exe "tabn ".g:last_active_tab<CR>
 " --------------------  Vim 基本设置   -------------------- }
 
 
@@ -158,12 +158,12 @@ let g:acp_behaviorKeywordLength = 3                     " 第3个字符触发补
 let g:acp_completeOption = '.,w,b,u,t,i,k'              " complete的参数
 
 " nerdtree 
-nmap <F9> :NERDTreeToggle<CR>
+nnoremap <F9> :NERDTreeToggle<CR>
 let NERDTreeWinPos = 'left'                             " 窗口位置，or 'right'
 let NERDTreeWinSize = 35                                " 窗口宽度
-let NERDTreeShowHidden = 1                                " 显示隐藏文件
+let NERDTreeShowHidden = 1                              " 显示隐藏文件
 let NERDTreeDirArrows = 1                               " 目录前面显示箭头
-let NERDTreeHighlightCursorline = 0                     " 不高亮光标行
+let NERDTreeHighlightCursorline = 1                     " 1:高亮光标行 0:不高亮
 " Start NERDTree. If a file is specified, move the cursor to its window.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
@@ -181,36 +181,43 @@ let g:NERDSpaceDelims = 1                               " 注释符号后跟一�
 let g:NERDAltDelims_python = 1                          " 指定python注释符后仅一空格
 
 " ctrlp
-let g:ctrlp_by_filename = 0                             " 只用文件名匹配
+let g:ctrlp_by_filename = 0                             " 1:只用文件名匹配，0:还含路径
 let g:ctrlp_regexp = 0                                  " 禁用正则匹配
-let g:ctrlp_open_new_file = 'h'                         " 创建新文件时用水平split
-let g:ctrlp_open_multiple_files = 'h'                   " 打开多个文件用水平split
-
-" powerline 
-"let g:Powerline_symbols = 'unicode'                     " 用Unicode字符模拟图标和箭头
+let g:ctrlp_open_new_file = 't'                         " 创建新文件时用新标签页
+let g:ctrlp_open_multiple_files = 't'                   " 打开多个文件用新标签页
+let g:ctrlp_tabpage_position = 'al'                     " 在最后一个标签页后打开新标签页
+let g:ctrlp_show_hidden = 1                             " 搜索隐藏文件
+" 不搜索特定文件夹或文件（正则）
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|svn|idea)$',
+    \ 'file': '\v\.(DS_Store|iml)$',
+    \ }
+" 回车后在标签页打开，默认是Ctrl+t
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+    \ 'AcceptSelection("t")': ['<cr>'],
+    \ }
 
 " taglist
-nmap <F10> :TlistToggle<CR>
+nnoremap <F10> :TlistToggle<CR>
 let Tlist_Use_Right_Window = 1                          " 窗口位置 
 let Tlist_WinWidth = 25                                 " 窗口宽度
 
 " a.vim
-nmap <F11> :A<CR>
+nnoremap <F11> :A<CR>
 
 " colorscheme 启用顔色主题
 colorscheme onedark
 
 " lightline
-let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
-      \ }
+let g:lightline = { 'colorscheme': 'jellybeans' }
 
 " --------------------  插件具体设置   -------------------- }
 
 
 " --------------------   ctags 设置    -------------------- {
 "set tags+=~/.vim/ctags/cocos2d-x-3.5.tags
-"nmap <F12> :!ctags --languages=C++ 
+"nnoremap <F12> :!ctags --languages=C++
 "    \ -f ~/.vim/ctags/cocos2d-x-3.5.tags 
 "    \ -R ~/Documents/cocos2d-x-3.5<CR>
 " --------------------   ctags 设置    -------------------- }
