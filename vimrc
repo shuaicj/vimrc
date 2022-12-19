@@ -165,8 +165,10 @@ let NERDTreeShowHidden = 1                              " 显示隐藏文件
 let NERDTreeDirArrows = 1                               " 目录前面显示箭头
 let NERDTreeHighlightCursorline = 1                     " 1:高亮光标行 0:不高亮
 " Start NERDTree. If a file is specified, move the cursor to its window.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+if !(&diff) " not in diff mode
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+endif
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
 " Close the tab if NERDTree is the only window remaining in it.
