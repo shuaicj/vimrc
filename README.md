@@ -14,11 +14,6 @@
 
 5. Launch `vim` and run `:PluginInstall`
 
-### Mac Terminal settings
-* Background color: 0xC7EDCC
-* Font: Courier 18 pt.
-* Window Size: Columns 130, Rows 40
-
 ### IntelliJ IDEA settings
 * `$ [ -f ~/.ideavimrc ] && mv ~/.ideavimrc ~/.ideavimrc.bak`
 * `$ ln -s ~/.vim/vimrc/ideavimrc ~/.ideavimrc`
