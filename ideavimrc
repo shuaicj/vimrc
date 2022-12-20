@@ -1,7 +1,7 @@
-
+set ruler                           " 显示光标位置
 set incsearch                       " 实时搜索
 set hlsearch                        " 高亮搜索结果
 set ignorecase                      " 搜索时智能忽略大小写
-set smartcase                      
+set smartcase
 set scrolloff=5                     " 光标保持离底边5行
 set showmatch                       " 高亮匹配的括号

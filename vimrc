@@ -162,6 +162,7 @@ nnoremap <F9> :NERDTreeToggle<CR>
 let NERDTreeWinPos = 'left'                             " 窗口位置，or 'right'
 let NERDTreeWinSize = 35                                " 窗口宽度
 let NERDTreeShowHidden = 1                              " 显示隐藏文件
+let NERDTreeSortOrder = ['^[^.].*\/$','\/$','*','^\.']  " 排列顺序
 let NERDTreeDirArrows = 1                               " 目录前面显示箭头
 let NERDTreeHighlightCursorline = 1                     " 1:高亮光标行 0:不高亮
 " Start NERDTree. If a file is specified, move the cursor to its window.
