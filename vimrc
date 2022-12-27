@@ -40,6 +40,8 @@ Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'joshdick/onedark.vim'
 " 状态栏 影响tab line和status line
 Plugin 'itchyny/lightline.vim'
+" 高亮搜索结果后自动去高亮
+Plugin 'romainl/vim-cool'
 " -------------------- Vundle 所有插件 -------------------- }
 
 
